@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Container } from "react-bootstrap";
+import DisplayInput from "./Components/DisplayInput";
+import InputForm from "./Components/InputForm";
 
 function App() {
+  const [params, setParams] = useState({});
+  const handleChange = (e) => {
+    const param = e.target.name;
+    const value = e.target.value;
+    setParams((prevParams) => {
+      return { ...prevParams, [param]: value };
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <h1>Generate Unique IDs Demo</h1>
+      <InputForm handleChange={handleChange} />
+      <InputForm handleChange={handleChange} />
+      <DisplayInput params={params} />
+    </Container>
   );
 }
 
