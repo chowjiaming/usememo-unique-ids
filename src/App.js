@@ -6,10 +6,10 @@ import InputForm from "./Components/InputForm";
 function App() {
   const [params, setParams] = useState({});
   const handleChange = (e) => {
-    const param = e.target.name;
+    const name = e.target.name;
     const value = e.target.value;
     setParams((prevParams) => {
-      return { ...prevParams, [param]: value };
+      return { ...prevParams, [name]: value };
     });
   };
 

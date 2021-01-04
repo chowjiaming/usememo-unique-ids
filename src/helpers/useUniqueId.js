@@ -2,8 +2,8 @@ import { useMemo } from "react";
 const shortid = require("shortid");
 
 const useUniqueId = () => {
-  const id = useMemo(() => shortid.generate(), []);
-  return (suffix) => `${id}_${suffix}`;
+  const uniqueId = useMemo(() => shortid.generate(), []);
+  return (elementNameSuffix) => `${uniqueId}_${elementNameSuffix}`;
 };
 
 export default useUniqueId;
