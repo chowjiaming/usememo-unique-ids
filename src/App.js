@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 import DisplayInput from "./Components/DisplayInput";
 import InputForm from "./Components/InputForm";
 
@@ -15,10 +15,12 @@ function App() {
 
   return (
     <Container>
-      <h1>Generate Unique IDs Demo</h1>
-      <InputForm handleChange={handleChange} />
-      <InputForm handleChange={handleChange} />
-      <DisplayInput params={params} />
+      <Col lg="5">
+        <h1>Generate Unique IDs Demo</h1>
+        <InputForm handleChange={handleChange} />
+        <InputForm handleChange={handleChange} />
+        <DisplayInput params={params} />
+      </Col>
     </Container>
   );
 }
