@@ -1,15 +1,17 @@
 import { Form, Button, Col } from "react-bootstrap";
+import useUniqueId from "../helpers/useUniqueId";
 
 export default function InputForm({ handleChange }) {
+  const generateId = useUniqueId();
   return (
-    <Col lg="5">
+    <Col lg="5" className="mb-2">
       <Form>
         <Form.Group>
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
-            name="email"
+            name={generateId("email")}
             onChange={handleChange}
           />
         </Form.Group>
@@ -18,7 +20,7 @@ export default function InputForm({ handleChange }) {
           <Form.Control
             type="text"
             placeholder="Enter Name"
-            name="name"
+            name={generateId("name")}
             onChange={handleChange}
           />
         </Form.Group>
